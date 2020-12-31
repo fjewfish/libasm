@@ -1,6 +1,6 @@
-NAME	= libasm.a
-FLAGS	=	-Wall -Werror -Wextra
-SRCS	=	*.s
+NAME = libasm.a
+
+SRCS =	*.s
 
 OBJS = $(SRCS:.s=.o)
 
@@ -16,8 +16,8 @@ clean:
 	rm -rf $(OBJS)
 
 test: all
-	gcc $(FLAGS) -L. -lasm -o test main.c
-	./test
+	gcc -Wall -Wextra -Werror -I./libasm.h libasm.a main.c -o test
+	./try_libasm
 
 fclean: clean
 	rm -rf $(NAME)
