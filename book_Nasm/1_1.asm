@@ -44,7 +44,7 @@ resd(двойные словва - четырехбайтовые)
 db -- dw -- dd
 
 section .bss
-array rest 256
+array rest 256 ;массив размера 256
 
 section .text
 		mov ecx, 256
@@ -53,4 +53,28 @@ section .text
 again:	mov [edi], al
 		inc edi
 		dec ecx
-		jnz again
+		jnz again ;если не ноль повторяем цикл
+
+;matrix dd 10*15
+;[matrix+eax+4*ebx]
+
+lea -- load effective adress вычисляет адрес не обращаясь к нему
+add eax, ebx -- eax += ebx
+sub вычетание
+
+adc, sbb учитывают  СF
+
+loop
+
+		mov ecx, 1000
+		mov esi, array
+		mov eax, 0
+lp:		add eax, [esi]
+		add esi, 4
+		loop lp
+
+xor eax, eax -- зантмает 2 байта вмпсто 5
+test eax, eax -- равенство нулю
+
+shr -- shift right
+shl -- shift left
