@@ -1,5 +1,5 @@
 global _ft_strdup
-	extern __errno_locarion
+	extern  ___error
 	extern _ft_strlen
 	extern _ft_strcpy
 	extern _malloc
@@ -20,4 +20,7 @@ _ft_strdup:
 
 .return_err:
 	mov rdi, 12
-	_
+	call ___error
+	mov [rax], rdi
+	mov rax, 0
+	ret
